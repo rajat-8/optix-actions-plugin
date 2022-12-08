@@ -1,0 +1,15 @@
+on: [push]
+
+jobs:
+  optix_plugin_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - name: Hello world action step
+        id: hello
+        uses: rajat-8/optix-actions-plugin@v1.1
+        with:
+          name: 'test job'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
