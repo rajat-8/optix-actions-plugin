@@ -5,9 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     name: test job
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Hello world action step
+        uses: ./ # Uses an action in the root directory
         id: hello
-        uses: rajat-8/optix-actions-plugin@v1.1
         with:
           name: 'test job'
       # Use the output from the `hello` step
