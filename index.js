@@ -3,6 +3,8 @@ const github = require('@actions/github');
 const axios = require('axios');
 
 try {
+
+  // Get all inputs from workflow main file
   const operation = core.getInput('operation');
   const APIKey = core.getInput('APIKey');
   const files = core.getInput('files');
@@ -15,8 +17,20 @@ try {
   const policy_name = core.getInput('policy_name');
   const scan_id = core.getInput('scan_id');
 
-  console.log(`Hello ${operation}!`);
-  console.log(`APIKey ${APIKey}!`);
+  const baseUrl = 'https://optix.sophos.com/'
+  const reqData = {
+    'APIKey' : APIKey
+  }
+  if(files.length != 0){
+    reqData['files'] = files
+  }
+  axios.put(baseUrl + 'api/v1/iac/scan', )
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
 
 
   const time = (new Date()).toTimeString();
