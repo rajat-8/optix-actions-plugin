@@ -11,7 +11,8 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: hello
         with:
-          name: 'test job'
+          operation: 'test job'
+          APIKey: 'key'
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
