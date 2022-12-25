@@ -15884,6 +15884,7 @@ try {
 		'APIKey': APIKey
 	}
 	if (operation.toLowerCase == 'scan') {
+		console.log('Scan operation');
 		if (files.length != 0)
 			reqData['files'] = files
 		if (repo_url.length != 0)
