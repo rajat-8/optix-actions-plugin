@@ -21,7 +21,8 @@ try {
 	const reqData = {
 		'APIKey': APIKey
 	}
-	if (operation.toLowerCase == 'scan') {
+	console.log(reqData);
+	if (operation.toLowerCase() == 'scan') {
 		console.log('Scan operation');
 		if (files.length != 0)
 			reqData['files'] = files
