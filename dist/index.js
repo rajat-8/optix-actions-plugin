@@ -15880,8 +15880,9 @@ try {
 	const scan_id = core.getInput('scan_id');
 
 	const baseUrl = 'https://optix.sophos.com/'
-	const reqData = {
-		'APIKey': APIKey
+	const reqData = {}
+	const headers = {
+		'Authorization': 'ApiKey ' + APIKey
 	}
 	console.log(reqData);
 	if (operation.toLowerCase() == 'scan') {
@@ -15895,7 +15896,7 @@ try {
 		if (committer_name.length != 0)
 			reqData['committer_name'] = committer_name
 		
-		axios.put(baseUrl + 'api/v1/iac/scan', reqData)
+		axios.put(baseUrl + 'api/v1/iac/scan', reqData, {headers})
 			.then(function (response) {
 				console.log(response);
 			})
