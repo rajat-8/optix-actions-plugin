@@ -1,51 +1,51 @@
-name: 'Optix github actions plugin'
-description: 'create sophos optix report'
-author: 'Rajat Aggarwal'
+name: "Optix github actions plugin"
+description: "create sophos optix report"
+author: "Rajat Aggarwal"
 inputs:
   operation:
-    description: 'select the operation you want to perform (scan/ status/ Detailed report )'
+    description: "select the operation you want to perform (scan/ status/ report )"
     default: Scan
     required: true
 
   APIKey:
-    description: 'Sophos optix API key for authentication'
+    description: "Sophos optix API key for authentication"
     required: true
 
   files:
-    description: 'MultipartFile[]. (SCAN) Mandatory. The array of files to be scanned. For better results, please include helper files such as those carrying values of variables used in the templates.'
+    description: "MultipartFile[]. (SCAN) Mandatory. The array of files to be scanned. For better results, please include helper files such as those carrying values of variables used in the templates."
     default: Sophos Optix CSPM report
 
   repo_url:
-    description: 'String. (SCAN) Optional. The repoURL to be associated with the files. Required if you wish to save results to console.'
-  
+    description: "String. (SCAN) Optional. The repoURL to be associated with the files. Required if you wish to save results to console."
+
   branch:
-    description: 'String. (SCAN) Optional. The branch to be associated with the files. Required if you wish to save results to console.'
-  
+    description: "String. (SCAN) Optional. The branch to be associated with the files. Required if you wish to save results to console."
+
   committer_name:
-    description: 'String. (SCAN) Optional. The name of the person making the commits to be associated with the files. Required if you wish to save results to console.'
-  
+    description: "String. (SCAN) Optional. The name of the person making the commits to be associated with the files. Required if you wish to save results to console."
+
   committer_email:
-    description: 'String. (SCAN) Optional. The email of the person making the commits to be associated with the files. Required if you wish to save results to console.'
-  
+    description: "String. (SCAN) Optional. The email of the person making the commits to be associated with the files. Required if you wish to save results to console."
+
   async:
-    description: 'Boolean. (SCAN) Optional. By default, your IaC template files will be processed asynchronously. However, if you have a small number of files and only require summary information (count of alerts for each severity level) you can choose to process files synchronously, by changing `async` to false.'
-    default: 'true'
-  
+    description: "Boolean. (SCAN) Optional. By default, your IaC template files will be processed asynchronously. However, if you have a small number of files and only require summary information (count of alerts for each severity level) you can choose to process files synchronously, by changing `async` to false."
+    default: "true"
+
   save_results_to_account:
-    description: 'Boolean. (SCAN) Optional. By default, scan results will not be reported in your Cloud Optix console as alerts and in compliance reports. If you only want to see the results not only in the API response, but in the console as well, change this setting to true.'
-    default: 'false'
-  
+    description: "Boolean. (SCAN) Optional. By default, scan results will not be reported in your Cloud Optix console as alerts and in compliance reports. If you only want to see the results not only in the API response, but in the console as well, change this setting to true."
+    default: "false"
+
   policy_name:
-    description: 'String. (SCAN) Optional. By default, your IaC template files will be scanned against all IaC policies in your Cloud Optix account. To scan files against a specific IaC policy only, provide the name of the policy'
-  
+    description: "String. (SCAN) Optional. By default, your IaC template files will be scanned against all IaC policies in your Cloud Optix account. To scan files against a specific IaC policy only, provide the name of the policy"
+
   scan_id:
-    description: 'String. (Status/ Detailed report) Mandatory. The ID of the scan that you are requesting the status for. This is provided in the response when you upload files for scanning.'
-  
+    description: "String. (Status/ Detailed report) Mandatory. The ID of the scan that you are requesting the status for. This is provided in the response when you upload files for scanning."
+
 outputs:
   response_status: # id of output
-    description: 'HTTP status response for the request'
+    description: "HTTP status response for the request"
   response_data:
-    description: 'Response JSON data for the API request'
+    description: "Response JSON data for the API request"
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "node16"
+  main: "dist/index.js"
