@@ -15896,6 +15896,7 @@ try {
 		if (committer_name.length != 0)
 			reqData['committer_name'] = committer_name
 		
+		console.log(reqData);
 		axios.put(baseUrl + 'api/v1/iac/scan', reqData, {headers})
 			.then(function (response) {
 				console.log(response);
