@@ -87,8 +87,8 @@ try {
 	}
 
 
-	core.setOutput("response_status", res.status);
-	core.setOutput("response_data", res.data)
+	core.setOutput("response_status", res);
+	core.setOutput("response_data", res)
 } catch (error) {
 	core.setFailed(error.message);
 }
