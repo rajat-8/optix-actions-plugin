@@ -12,11 +12,11 @@ jobs:
         id: hello
         with:
           operation: "scan"
-          APIKey: "b471f931-f2f2-43d1-a535-6ea160a8ff17"
-          files: "file"
-          repo_url: "branch"
-          branch: "branhc"
-          committer_name: "committer_name"
+          APIKey: "5cc12f49-dcf0-4dd1-8b89-414caac297dd"
+          files: "test/test.txt"
+          repo_url: "https://github.com/rajat-8/optix-actions-plugin.git"
+          branch: "dev3"
+          # committer_name: "committer_name"
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The status ${{ steps.hello.outputs.response_status }} with data ${{ steps.hello.outputs.response_data }}"
