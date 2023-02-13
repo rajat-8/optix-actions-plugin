@@ -32,7 +32,7 @@ try {
 		console.log('Scan operation');
 		if (files.length != 0){
 			const file = fs.createReadStream(files)
-			reqData['files'] = file
+			reqData['files'] = files
 		}
 		if (repo_url.length != 0)
 			reqData['repo_url'] = repo_url
