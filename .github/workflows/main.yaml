@@ -12,7 +12,7 @@ jobs:
         id: hello
         with:
           operation: "scan"
-          APIKey: "key"
+          APIKey: "b471f931-f2f2-43d1-a535-6ea160a8ff17"
           files: "file"
           repo_url: "branch"
           branch: "branhc"
