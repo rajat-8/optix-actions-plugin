@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const axios = require('axios');
+const fs = require('fs')
 
 try {
 
@@ -21,15 +22,18 @@ try {
 	const options = {}
 	const reqData = {}
 	const headers = {
-		'Authorization': 'ApiKey ' + APIKey
+		Authorization: 'ApiKey ' + APIKey,
+		'Content-Type': 'multipart/form-data'
 	}
 	options['headers'] = headers;
 	let res;
 	console.log(reqData);
 	if (operation.toLowerCase() == 'scan') {
 		console.log('Scan operation');
-		if (files.length != 0)
-			reqData['files'] = files
+		if (files.length != 0){
+			const file = fs.createReadStream(files)
+			reqData['files'] = file
+		}
 		if (repo_url.length != 0)
 			reqData['repo_url'] = repo_url
 		if (branch.length != 0)

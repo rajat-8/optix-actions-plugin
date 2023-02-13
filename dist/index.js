@@ -15863,6 +15863,7 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(3918);
 const github = __nccwpck_require__(5173);
 const axios = __nccwpck_require__(9980);
+const fs = __nccwpck_require__(7147)
 
 try {
 
@@ -15883,15 +15884,18 @@ try {
 	const options = {}
 	const reqData = {}
 	const headers = {
-		'Authorization': 'ApiKey ' + APIKey
+		Authorization: 'ApiKey ' + APIKey,
+		'Content-Type': 'multipart/form-data'
 	}
 	options['headers'] = headers;
 	let res;
 	console.log(reqData);
 	if (operation.toLowerCase() == 'scan') {
 		console.log('Scan operation');
-		if (files.length != 0)
-			reqData['files'] = files
+		if (files.length != 0){
+			const file = fs.createReadStream(files)
+			reqData['files'] = file
+		}
 		if (repo_url.length != 0)
 			reqData['repo_url'] = repo_url
 		if (branch.length != 0)
