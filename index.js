@@ -18,7 +18,7 @@ try {
 	const policy_name = core.getInput('policy_name');
 	const scan_id = core.getInput('scan_id');
 
-	const baseUrl = 'https://optix.sophos.com/'
+	const baseUrl = 'https://staging.optix.sophos.com/'
 	const options = {}
 	const reqData = {}
 	const headers = {
